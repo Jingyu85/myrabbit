@@ -1,0 +1,27 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>部落格</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+  </head>
+  <body onload="ShowTime()" background="/home/jingyu/圖片">
+    {% include 'main/menu.html' %}
+    <h2>歡迎來到我的寵物日記</h2>
+    <p>{{ like }}</p>
+    <form id="form1" runat="server">
+        <div id = "showbox"></div>
+    </form>
+  </body>
+  <script language="JavaScript" type="text/javascript">
+        function ShowTime()
+        {
+            var NowDate = new Date();
+            var d = NowDate.getDay();
+            var dayNames = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+            document.getElementById('showbox').innerHTML = '目前時間：' + NowDate.toLocaleString() + '（' + dayNames[d] + '）';
+            setTimeout('ShowTime()', 1000);
+        }
+   </script>
+</html>
